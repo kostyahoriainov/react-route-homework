@@ -2,6 +2,7 @@ import React from 'react';
 import store from '../store';
 import { getUsers, usersDidLoad } from '../action';
 import Loader from './Loader'
+import UserList from './UserList';
 
 class Users extends React.Component {
 
@@ -18,13 +19,10 @@ class Users extends React.Component {
     }
 
     render() {
-        const { users } = this.props.data
-
-        if(users.length) {
+        const { users, isLoaded } = this.props.data;
+        if(isLoaded) {
             return (
-                <ul className="main-content">
-                    {users.map((user, i) => <li key={user.id}>в хату заходит челик №{i+1}, под именем {user.name}</li>)}
-                </ul>
+                <UserList users={users} />
             ) 
         } else {
             return (
