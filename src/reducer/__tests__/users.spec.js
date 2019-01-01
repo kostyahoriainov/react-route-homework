@@ -9,7 +9,6 @@ describe("users reducer", () => {
             age: 30
         }
         const newState = users(undefined, getUsers(user));
-        console.log(newState)
         expect(newState.users.name).toEqual('Alex');
         expect(newState.users.email).toEqual('Alex@gmail.com');
         expect(newState.users.age).toEqual(30);

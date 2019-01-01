@@ -10,10 +10,11 @@ class Users extends React.Component {
         if (!this.props.data.isLoaded) {
             setTimeout(() => {
                 fetch('https://jsonplaceholder.typicode.com/users')
-                .then(response => response.json())
-                .then(users => store.dispatch(getUsers(users)))
-                .then(store.dispatch(usersDidLoad()))
-
+                    .then(response => response.json())
+                    .then(users => {
+                        store.dispatch(getUsers(users))
+                        store.dispatch(usersDidLoad())
+                    })
             }, 2000)
         }
     }

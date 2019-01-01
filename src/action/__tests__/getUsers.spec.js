@@ -1,5 +1,5 @@
 import C from '../../constants';
-import { getUsers, usersDidLoad } from '../index'
+import { getUsers } from '../index'
 
 describe("Get users from API", () => {
     it("should contain the getUsers action type", () => {
